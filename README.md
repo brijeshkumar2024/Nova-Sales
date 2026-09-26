@@ -39,17 +39,7 @@ NovaSales combines:
 
 > **Design principle:** the forecasting model produces the forecast; Cohere explains the structured forecast context. The generative model does not generate or modify the numerical forecast.
 
-## Product Preview
 
-### Premium Web Interface
-
-<p align="center">
-  <img src="docs/screenshots/web-home.png" alt="NovaSales premium web interface" width="900">
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/web-dashboard.png" alt="NovaSales sales command center" width="900">
-</p>
 
 ### Operational Dashboards
 
