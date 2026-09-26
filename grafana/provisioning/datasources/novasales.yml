@@ -1,0 +1,10 @@
+apiVersion: 1
+
+datasources:
+  - name: NovaSales API
+    type: yesoreyeram-infinity-datasource
+    access: proxy
+    uid: novasales-api
+    url: http://127.0.0.1:8000
+    isDefault: false
+    editable: true

@@ -1,0 +1,1196 @@
+{
+  "id": null,
+  "uid": "novasales-executive",
+  "title": "NovaSales Executive Intelligence",
+  "tags": [
+    "NovaSales",
+    "Sales Intelligence",
+    "Forecasting",
+    "PySpark",
+    "AI"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 4,
+  "refresh": "30s",
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Total Sales",
+      "description": "Total sales across all regions",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyINR"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "total_sales_inr",
+              "text": "total_sales_inr",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Transactions",
+      "description": "Total processed transactions",
+      "gridPos": {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "total_transactions",
+              "text": "total_transactions",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Quantity Sold",
+      "description": "Total quantity sold",
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "total_quantity",
+              "text": "total_quantity",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Active Products",
+      "description": "Currently active products",
+      "gridPos": {
+        "x": 18,
+        "y": 0,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "active_products",
+              "text": "active_products",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Sales Growth",
+      "description": "Latest daily sales growth versus previous day",
+      "gridPos": {
+        "x": 0,
+        "y": 5,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "sales_growth_percent",
+              "text": "sales_growth_percent",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 6,
+      "type": "stat",
+      "title": "Latest Daily Sales",
+      "description": "Sales recorded on the latest available date",
+      "gridPos": {
+        "x": 6,
+        "y": 5,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyINR"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "latest_sales_inr",
+              "text": "latest_sales_inr",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 7,
+      "type": "stat",
+      "title": "Average Daily Sales",
+      "description": "Average daily sales",
+      "gridPos": {
+        "x": 12,
+        "y": 5,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyINR"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "average_daily_sales_inr",
+              "text": "average_daily_sales_inr",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 8,
+      "type": "stat",
+      "title": "Active Regions",
+      "description": "Number of active sales regions",
+      "gridPos": {
+        "x": 18,
+        "y": 5,
+        "w": 6,
+        "h": 5
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/summary",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "[$]",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "active_regions",
+              "text": "active_regions",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "justifyMode": "auto",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "title": "",
+      "gridPos": {
+        "x": 0,
+        "y": 10,
+        "w": 24,
+        "h": 4
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "\n# NOVASALES INTELLIGENCE\n\n### Real-Time Sales Monitoring • Forecasting • Regional Intelligence\n\n**Data:** Historical + Streaming  \n**Forecast:** XGBoost  \n**AI:** Cohere Explainability  \n**Processing:** PySpark Structured Streaming\n"
+      }
+    },
+    {
+      "id": 10,
+      "type": "timeseries",
+      "title": "Actual Sales Trend",
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 14,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "barAlignment": 0,
+            "lineWidth": 2,
+            "fillOpacity": 12,
+            "gradientMode": "opacity",
+            "spanNulls": true,
+            "showPoints": "auto",
+            "pointSize": 4
+          },
+          "mappings": [],
+          "unit": "currencyINR"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/history?limit=912",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "$.records",
+          "format": "timeseries",
+          "columns": [
+            {
+              "selector": "date",
+              "text": "Date",
+              "type": "time"
+            },
+            {
+              "selector": "daily_sales_inr",
+              "text": "Actual Sales",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        },
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "type": "timeseries",
+      "title": "7-Day Sales Forecast",
+      "gridPos": {
+        "x": 14,
+        "y": 14,
+        "w": 10,
+        "h": 9
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "barAlignment": 0,
+            "lineWidth": 2,
+            "fillOpacity": 12,
+            "gradientMode": "opacity",
+            "spanNulls": true,
+            "showPoints": "auto",
+            "pointSize": 4
+          },
+          "mappings": [],
+          "unit": "currencyINR"
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/forecast/future?limit=7",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "$.records",
+          "format": "timeseries",
+          "columns": [
+            {
+              "selector": "date",
+              "text": "Date",
+              "type": "time"
+            },
+            {
+              "selector": "forecast_sales_inr",
+              "text": "Forecast",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        },
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": "table",
+      "title": "Sales by Region",
+      "gridPos": {
+        "x": 0,
+        "y": 23,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/regions",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "$.records",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "region",
+              "text": "Region",
+              "type": "string"
+            },
+            {
+              "selector": "sales_inr",
+              "text": "Sales (INR)",
+              "type": "number"
+            },
+            {
+              "selector": "quantity",
+              "text": "Quantity",
+              "type": "number"
+            },
+            {
+              "selector": "transactions",
+              "text": "Transactions",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        },
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": "table",
+      "title": "Top-Selling Products",
+      "gridPos": {
+        "x": 12,
+        "y": 23,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/sales/products/top?limit=10",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "$.records",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "product_id",
+              "text": "Product ID",
+              "type": "string"
+            },
+            {
+              "selector": "product_name",
+              "text": "Product",
+              "type": "string"
+            },
+            {
+              "selector": "category",
+              "text": "Category",
+              "type": "string"
+            },
+            {
+              "selector": "sales_inr",
+              "text": "Sales (INR)",
+              "type": "number"
+            },
+            {
+              "selector": "quantity",
+              "text": "Quantity",
+              "type": "number"
+            },
+            {
+              "selector": "transactions",
+              "text": "Transactions",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        },
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        }
+      }
+    },
+    {
+      "id": 14,
+      "type": "table",
+      "title": "Forecast Model Performance",
+      "gridPos": {
+        "x": 0,
+        "y": 31,
+        "w": 12,
+        "h": 7
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/metrics",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "$.records",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "model",
+              "text": "Model",
+              "type": "string"
+            },
+            {
+              "selector": "MAE",
+              "text": "MAE",
+              "type": "number"
+            },
+            {
+              "selector": "RMSE",
+              "text": "RMSE",
+              "type": "number"
+            },
+            {
+              "selector": "MAPE",
+              "text": "MAPE",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        },
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        }
+      }
+    },
+    {
+      "id": 15,
+      "type": "table",
+      "title": "Latest Forecast",
+      "gridPos": {
+        "x": 12,
+        "y": 31,
+        "w": 12,
+        "h": 7
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dfzfaa98n6zggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dfzfaa98n6zggd"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "/forecast/latest",
+          "url_options": {
+            "method": "GET",
+            "data": "",
+            "params": []
+          },
+          "parser": "backend",
+          "root_selector": "$.records",
+          "format": "table",
+          "columns": [
+            {
+              "selector": "date",
+              "text": "Date",
+              "type": "time"
+            },
+            {
+              "selector": "forecast_sales_inr",
+              "text": "Forecast Sales (INR)",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "global_query_id": ""
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "show": false
+        },
+        "showHeader": true,
+        "sort": {
+          "col": 0,
+          "desc": true
+        }
+      }
+    },
+    {
+      "id": 16,
+      "type": "text",
+      "title": "NovaSales System",
+      "gridPos": {
+        "x": 0,
+        "y": 38,
+        "w": 24,
+        "h": 8
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "\n## NovaSales Platform\n\n**Architecture**\n\n`Sales Sources → PySpark → Feature Engineering → XGBoost Forecast → FastAPI → Grafana`\n\n**Core Components**\n\n- PySpark Structured Streaming\n- Historical sales analytics\n- Currency normalization to INR\n- Rolling-window feature engineering\n- XGBoost forecasting\n- Cohere-powered explanations\n- FastAPI backend\n- Grafana monitoring\n- Gradio sales manager interface\n\n**Dashboard Refresh:** 30 seconds\n"
+      }
+    }
+  ]
+}

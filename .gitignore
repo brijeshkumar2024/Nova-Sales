@@ -1,0 +1,71 @@
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw datasets
+data/raw/*.csv
+
+# Generated ML artifacts
+models/*.joblib
+models/*.pkl
+models/*.pickle
+
+# Generated data
+data/processed/
+data/features/
+data/streaming/input/
+data/streaming/processed/
+data/streaming/checkpoint/
+
+# Local AWS-generated outputs
+data/aws_processed/
+
+# Local logs
+*.log
+logs/
+
+# PySpark / Hadoop
+spark-warehouse/
+metastore_db/
+derby.log
+*.crc
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+web/.turbo/
+web/.vercel/
+
+# Testing / coverage
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
