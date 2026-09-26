@@ -39,6 +39,29 @@ NovaSales combines:
 
 > **Design principle:** the forecasting model produces the forecast; Cohere explains the structured forecast context. The generative model does not generate or modify the numerical forecast.
 
+## Product Preview
+
+### Premium Web Interface
+
+<p align="center">
+  <img src="docs/screenshots/web-home.png" alt="NovaSales premium web interface" width="900">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/web-dashboard.png" alt="NovaSales sales command center" width="900">
+</p>
+
+### Operational Dashboards
+
+<p align="center">
+  <img src="docs/screenshots/grafana-overview.png" alt="NovaSales Grafana executive dashboard" width="900">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/gradio-overview.png" alt="NovaSales Gradio manager interface" width="900">
+</p>
+
+
 ---
 
 ## Problem
@@ -382,8 +405,11 @@ Nova-Sales/
 │   ├── package.json
 │   └── tsconfig.json
 │
+├── docs/
+│   └── screenshots/
 ├── .env.example
 ├── .gitignore
+├── LICENSE
 └── requirements.txt
 ~~~
 
@@ -409,7 +435,7 @@ python -m venv .venv
 Windows:
 
 ~~~bat
-.venvScriptsactivate
+.venv\\Scripts\\activate
 ~~~
 
 Install dependencies:
@@ -579,7 +605,7 @@ C. V. Raman Global University, Bhubaneswar
 
 ## License
 
-No open-source license has been declared yet. Until a license is added, the repository remains publicly viewable but should not be assumed to grant broad reuse rights.
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for the full license text.
 
 ---
 
