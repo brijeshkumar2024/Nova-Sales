@@ -41,15 +41,6 @@ NovaSales combines:
 
 
 
-### Operational Dashboards
-
-<p align="center">
-  <img src="docs/screenshots/grafana-overview.png" alt="NovaSales Grafana executive dashboard" width="900">
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/gradio-overview.png" alt="NovaSales Gradio manager interface" width="900">
-</p>
 
 
 ---
